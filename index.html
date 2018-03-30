@@ -1,0 +1,155 @@
+---
+layout: default
+---
+
+<!-- Start Hero -->
+<div class="hero" style="background: url('{{ site.baseurl }}/img/{{ site.hero.hero_img }}') no-repeat; background-size: cover;">
+    <div class="hero-content">
+        <div class="container-fluid">
+            <div class="hero-content-inner">
+                <h1>{{ site.hero.hero_title }}</h1>
+                <p>{{ site.hero.hero_description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="height:465px;">
+    </div>
+</div>
+<!-- End Hero -->
+
+<!-- Start 3 columns -->
+<div class="three-shade-col">
+    <div class="col-sm-4">
+        <svg class="icon icon-envelope-o"><use xlink:href="#icon-envelope-o"></use></svg>
+        <h3>联系我们</h3>
+        <ul>
+            {% if site.contact.phone %}<li><strong>电话:</strong> {{ site.contact.phone }}</li>{% endif %}
+            <!-- {% if site.contact.emergency %}<li><strong>Emergency:</strong> {{ site.contact.emergency }}</li>{% endif %} -->
+            {% if site.contact.email %}<li><strong>邮箱:</strong> {{ site.contact.email }}</li>{% endif %}
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <svg class="icon icon-clock-o"><use xlink:href="#icon-clock-o"></use></svg>
+        <h3>经营时间</h3>
+        <p>
+            全天24小时
+        </p>
+    </div>
+    <div class="col-sm-4">
+        <svg class="icon icon-map-marker"><use xlink:href="#icon-map-marker"></use></svg>
+        <h3>地址</h3>
+        <p>
+            {{ site.contact.address }}
+        </p>
+    </div>
+</div>
+<!-- End 3 columns -->
+
+<!-- Start About -->
+<div id="about" class="about">
+    <div class="container-fluid">
+        <h2 class="section-title">关于我们</h2>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>欢迎来到深圳中科建筑装饰科技有限公司</h3>
+                <p>专注游乐场、中小型运动场地设备及器材安装、灯光量化、AR虚拟设备安装</p>
+
+                <div class="media">
+                    <div class="media-left">
+                        ▪️
+                    </div>
+                    <div class="media-body">
+                        <p>实力雄厚，北京和深圳研发团队，专业定制各类娱乐设施</p>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="media-left">
+                        ▪️
+                    </div>
+                    <div class="media-body">
+                        <p>业务专精，高精尖设备安装、装饰、售后维护</p>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="media-left">
+                        ▪️
+                    </div>
+                    <div class="media-body">
+                        <p>贴心定制化，最快打造符合场地要求的装饰及设备安装</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img src="img/about.jpg" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About -->
+
+<!-- Start Treatments -->
+<div id="treatments" class="treatments">
+    <div class="container-fluid">
+        <h2 class="section-title">六心服务</h2>
+
+        <div class="row">
+            {% for treatment in site.data.treatments %}
+                <div class="col-sm-6 col-md-4">
+                    <div class="icon-box">
+                        <svg class="icon {{ treatment.icon }}"><use xlink:href="#{{ treatment.icon }}"></use></svg>
+                        <h4>{{ treatment.title }}</h4>
+                        <p>{{ treatment.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- End Treatments -->
+
+<!-- Start Testimonials -->
+<div id="testimonials" class="testimonials parallax" style="background-image: url('{{ site.baseurl }}/img/{{ site.testimonials.testimonials_img }}');">
+    <div class="overlay-container">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+            <div id="testimonial-carousel">
+                {% for testimonial in site.data.testimonials %}
+                    <div class="testimonial-item">
+                        <svg class="icon icon-quote-left"><use xlink:href="#icon-quote-left"></use></svg>
+                        <blockquote>
+                            <p>{{ testimonial.description }}</p>
+                            <footer>
+                                {{ testimonial.name }}
+                                <small>{{ testimonial.title }}</small>
+                            </footer>
+                        </blockquote>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonials -->
+
+<!-- Start Gallery -->
+<div id="gallery" class="gallery">
+        
+    <h2 class="section-title">项目展示</h2>
+
+    {% for images in site.data.gallery %}
+        <a href="{{ site.baseurl }}/img/gallery/large/{{ images.image_large }}" class="gallery-item expandable-box image-link">
+            <div class="expandable-box-top">
+                <img src="{{ site.baseurl }}/img/gallery/thumb/{{ images.image_thumb }}" alt="{{ images.image_alt }}">
+            </div>
+            <div class="expandable-box-bottom">
+                <span><svg class="icon icon-chain"><use xlink:href="#icon-chain"></use></svg></span>
+            </div>
+        </a>
+    {% endfor %}
+
+</div>
+<!-- End Gallery -->
